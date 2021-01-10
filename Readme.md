@@ -3,3 +3,4 @@
 
 ## 项目说明
 1. **springboot-aop**：aop示例项目，关于aop注解及表达式等的使用
+2. **springboot-jsp**：jsp示例项目，关于jsp整合及静态资源访问

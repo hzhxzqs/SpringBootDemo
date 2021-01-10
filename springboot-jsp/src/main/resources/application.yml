@@ -1,0 +1,14 @@
+server:
+  port: 9001
+  servlet:
+    encoding:
+      # 设置编码
+      charset: UTF-8
+
+spring:
+  mvc:
+    view:
+      # 页面默认前缀
+      prefix: /WEB-INF/jsp/
+      # 页面默认后缀
+      suffix: .jsp
