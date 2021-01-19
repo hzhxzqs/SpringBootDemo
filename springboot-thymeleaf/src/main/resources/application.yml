@@ -1,0 +1,13 @@
+server:
+  port: 9001
+
+spring:
+  thymeleaf:
+    # 设置编码
+    encoding: UTF-8
+    # 页面默认前缀
+    prefix: classpath:/templates/
+    # 页面默认后缀
+    suffix: .html
+    # 关闭缓存
+    cache: false

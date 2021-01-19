@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<!-- 导入标签库 -->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>SpringBoot Thymeleaf</title>
+</head>
+<link type="text/css" rel="stylesheet" th:href="@{/css/demo.css}">
+<body>
+
+<h2>表达式：</h2>
+读取普通对象：
+<div th:text="${msg}">Hello World!</div>
+
+读取自定义对象方式1：
+<div>
+    Name: <span th:text="${user.name}">name</span><br>
+    Age: <span th:text="${user.age}">age</span>
+</div>
+
+读取自定义对象方式2：
+<div th:object="${user}">
+    Name: <span th:text="*{name}">name</span><br>
+    Age: <span th:text="*{age}">age</span>
+</div>
+
+方法调用:
+<div th:object="${user}">
+    First Name: <span th:text="*{name.split(' ')[0]}">first name</span><br>
+    Last Name: <span th:text="*{name.split(' ')[1]}">last name</span>
+</div>
+
+<h2>内置对象：</h2>
+请求上下文路径：
+<div th:text="${#request.contextPath}">空</div>
+
+时间格式化：
+<div th:text="${#dates.format(date,'yyyyMMdd')}">2021-01-01</div>
+
+<h2>字面量：</h2>
+字符串字面值：
+<div th:text="'text'">字符串字面值</div>
+
+数字字面值：
+<div th:text="2021">2020</div>
+<div th:text="2021 + 2">2020</div>
+
+布尔字面值：
+<div th:if="true">true</div>
+
+<h2>字符串操作：</h2>
+<div th:text="'哈哈哈：'+${user.name}">哈哈哈</div>
+<div th:text="|哈哈哈: ${user.name}|">哈哈哈</div>
+
+<h2>运算符：</h2>
+算术运算符：
+<div th:text="${user.age} % 2 == 0"></div>
+
+比较运算符：
+<div th:text="${user.age} gt 18"></div>
+
+三元运算符：
+<div th:text="${user.sex} ? '男' : '女'"></div>
+
+默认值：
+<div th:text="${user.name} ?: '姓名'"></div>
+<div th:text="${user.happy} ?: '爱好'"></div>
+
+<h2>循环：</h2>
+<div th:each="user,status : ${users}">
+    <span th:text="${user.name}"></span>
+    ->
+    <span th:text="${status.index}"></span>
+</div>
+
+<h2>条件：</h2>
+<div th:if="${user.age} gt 18">成年人</div>
+
+<h2>分支控制：</h2>
+<div th:switch="${user.sex}">
+    <div th:case="1">男</div>
+    <div th:case="0">女</div>
+    <div th:case="*">未知</div>
+</div>
+
+<h2>静态资源：</h2>
+<div id="demo">0</div>
+
+</body>
+<script type="text/javascript" th:src="@{/lib/jquery-3.5.1.min.js}"></script>
+<script type="text/javascript" th:src="@{/js/demo.js}"></script>
+</html>
