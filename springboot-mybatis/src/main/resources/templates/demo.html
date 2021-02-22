@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SpringBoot Mybatis</title>
+</head>
+<link type="text/css" rel="stylesheet" href="/lib/layui/css/layui.css">
+<body>
+<div style="width: 60%; margin: 20px auto;">
+    <button type="button" id="add_demo" class="layui-btn layui-btn-normal">添加</button>
+    <button type="button" id="add_multi_demo" class="layui-btn layui-btn-normal">批量添加</button>
+    <table id="list_demo" lay-filter="list_demo"></table>
+</div>
+
+<div id="demo_info" style="display: none">
+    <div style="padding: 20px 20px 0 0">
+        <form class="layui-form">
+            <div class="layui-form-item">
+                <label class="layui-form-label" for="demo_id">id</label>
+                <div class="layui-input-block">
+                    <input type="text" id="demo_id" class="layui-input" readonly>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label" for="demo_desc">描述</label>
+                <div class="layui-input-block">
+                    <input type="text" id="demo_desc" class="layui-input" autocomplete="off">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label" for="demo_date">创建日期</label>
+                <div class="layui-input-block">
+                    <input type="text" id="demo_date" class="layui-input" readonly>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div id="multi_demo_info" style="display: none">
+    <div style="padding: 20px 20px 0 0">
+        <form class="layui-form">
+            <div class="layui-form-item">
+                <label class="layui-form-label" for="demo_desc1">描述</label>
+                <div class="layui-input-block">
+                    <input type="text" id="demo_desc1" class="layui-input" autocomplete="off">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label" for="demo_desc2">描述</label>
+                <div class="layui-input-block">
+                    <input type="text" id="demo_desc2" class="layui-input" autocomplete="off">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label" for="demo_desc3">描述</label>
+                <div class="layui-input-block">
+                    <input type="text" id="demo_desc3" class="layui-input" autocomplete="off">
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script type="text/html" id="op_demo">
+    <button type="button" class="layui-btn layui-btn-sm" lay-event="update">修改</button>
+    <button type="button" class="layui-btn layui-btn-sm layui-btn-danger" lay-event="delete">删除</button>
+</script>
+</body>
+<script type="text/javascript" src="/lib/jquery-3.5.1.min.js"></script>
+<script type="text/javascript" src="/lib/layui/layui.all.js"></script>
+<script type="text/javascript" src="/js/demo.js"></script>
+</html>

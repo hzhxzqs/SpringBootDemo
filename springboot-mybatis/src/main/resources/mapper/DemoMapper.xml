@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<!-- 指定命名空间 -->
+<mapper namespace="zam.hzh.mybatis.dao.DemoDao">
+    <insert id="addDemo" useGeneratedKeys="true" keyProperty="id">
+        insert into demo
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="createDate != null">
+                create_date,
+            </if>
+            <if test="demoDesc != null">
+                demo_desc,
+            </if>
+        </trim>
+        value
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="createDate != null">
+                #{createDate},
+            </if>
+            <if test="demoDesc != null">
+                #{demoDesc},
+            </if>
+        </trim>
+    </insert>
+
+    <insert id="addDemoList" useGeneratedKeys="true" keyProperty="id">
+        insert into demo(create_date, demo_desc) values
+        <foreach collection="list" item="demo" separator=",">
+            (#{demo.createDate}, #{demo.demoDesc})
+        </foreach>
+    </insert>
+
+    <delete id="delDemo">
+        delete
+        from demo
+        where id = #{id}
+    </delete>
+
+    <select id="findDemoById" resultType="zam.hzh.mybatis.model.Demo">
+        select id, create_date, demo_desc
+        from demo
+        where id = #{id}
+    </select>
+
+    <select id="findAllDemo" resultType="zam.hzh.mybatis.model.Demo">
+        select id, create_date, demo_desc
+        from demo
+    </select>
+
+    <update id="updateDemo">
+        update demo
+        <set>
+            <if test="createDate != null">
+                create_date = #{createDate},
+            </if>
+            <if test="demoDesc != null">
+                demo_desc = #{demoDesc},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+
+</mapper>
