@@ -8,3 +8,4 @@
 4. **springboot-jpa**：jpa示例项目，关于jpa整合及使用
 5. **springboot-mybatis**：mybatis示例项目，关于mybatis整合及使用
 6. **springboot-exceptionHandler**：全局异常处理示例项目
+7. **springboot-quartz**：quartz示例项目，关于quartz整合及定时任务设置
