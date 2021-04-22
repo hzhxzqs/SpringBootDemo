@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SpringBoot Shiro</title>
+</head>
+<style type="text/css" rel="stylesheet">
+    .item {
+        display: inline-block;
+        height: 20px;
+        line-height: 20px;
+        padding: 2px 5px;
+        border-radius: 10px;
+        border: 1px solid #898989;
+        cursor: pointer;
+    }
+
+    .item_selected {
+        background-color: #00aeff;
+        color: #ffffff;
+    }
+</style>
+<body>
+<div style="width: 80%; margin: 50px auto">
+    <a href="/page/pages.html">pages.html</a><br>
+    <div style="margin: 5px auto">
+        用户名：
+        <span id="username"></span><br>
+        角色：
+        <span id="role"></span><br>
+        权限：
+        <span id="permission"></span>
+    </div>
+    <div style="margin: 5px auto">
+        <div>
+            添加角色：
+            <label>
+                <input type="text" id="add_role">
+            </label>
+            <button type="button" id="role_add">添加</button>
+        </div>
+        <div>
+            选择角色：
+            <div id="all_roles" style="border: 1px solid #333333; padding: 10px"></div>
+        </div>
+    </div>
+    <div style="margin: 5px auto">
+        <div>
+            添加权限：
+            <label>
+                <input type="text" id="add_perm">
+            </label>
+            <button type="button" id="perm_add">添加</button>
+        </div>
+        <div>
+            选择权限：
+            <div id="all_perms" style="border: 1px solid #333333; padding: 10px"></div>
+        </div>
+    </div>
+</div>
+</body>
+<script type="application/javascript" src="/lib/jquery-3.5.1.min.js"></script>
+<script type="application/javascript" src="/js/welcome.js"></script>
+</html>
