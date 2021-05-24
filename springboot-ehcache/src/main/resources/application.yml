@@ -1,0 +1,8 @@
+server:
+  port: 9001
+
+# 指定ehcache配置文件位置
+spring:
+  cache:
+    ehcache:
+      config: classpath:config/ehcache.xml

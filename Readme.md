@@ -10,3 +10,4 @@
 6. **springboot-exceptionHandler**：全局异常处理示例项目
 7. **springboot-quartz**：quartz示例项目，关于quartz整合及定时任务设置
 8. **springboot-shiro**：shiro示例项目，关于shiro整合，实现用户登录和用户授权
+9. **springboot-ehcache**：ehcache示例项目，关于ehcache整合及使用

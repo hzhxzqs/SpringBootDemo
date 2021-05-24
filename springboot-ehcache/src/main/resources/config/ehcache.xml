@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ehcache updateCheck="false" name="ehcacheCache">
+
+    <!--
+        diskStore：可选配置，当启用overflowToDisk或diskPersistent时必须配置，否则将发出警告并默认使用java.io.tmpdir
+            - path：指定保存缓存文件的目录，可使用如下属性：
+                * user.home：用户主目录
+                * user.dir：用户当前工作目录
+                * java.io.tmpdir：默认临时文件路径
+                * ehcache.disk.store.dir：系统属性，需要在命令行指定，如： java -Dehcache.disk.store.dir=/app/dir
+                可指定子目录，如：java.io.tmpdir/dir
+    -->
+    <!-- <diskStore path="java.io.tmpdir"/> -->
+
+    <!--
+        cache：缓存配置，包括defaultCache（没配置将使用默认配置）和cache（可选配置）
+          + 必填属性：
+            - name：缓存名称，作为缓存的唯一标识（defaultCache不需配置）
+            - maxElementsInMemory：内存中最大缓存对象数（0表示无限制）
+            - maxElementsOnDisk：磁盘中最大缓存对象数，默认0
+            - eternal：缓存对象是否永久有效，若设置为true则timeout无效，缓存对象永不过期
+            - overflowToDisk：当超过maxElementsInMemory时是否写入磁盘
+          + 可选属性：
+            - timeToIdleSeconds：设置对象在失效前的允许闲置时间，默认0，当eternal=false时有效
+                说明：闲置时间是指对象在两次访问之间的时间，若超过允许的闲置时间则对象失效
+            - timeToLiveSeconds：设置对象在失效前的允许存活时间，默认0，当eternal=false时有效
+                说明：存活时间是指对象从创建到失效之间的时间，若超过允许的存活时间则对象失效
+            - diskPersistent：重启虚拟机时是否保持磁盘存储的数据，默认false
+            - diskExpiryThreadIntervalSeconds：磁盘失效线程运行的时间间隔，默认120
+            - diskSpoolBufferSizeMB：设置DiskStore（磁盘缓存）的缓存区大小，写入时先写入缓存区再异步写入磁盘，默认30
+                说明：每个cache使用各自的缓存区，如果发生OutOfMemory异常，可以考虑该值是否过低
+            - memoryStoreEvictionPolicy：达到maxElementsInMemory限制后的内存清空策略，默认LRU，可使用如下策略：
+                * LRU（Least Recently Used），最近最少使用
+                * FIFO（First In First Out），先进先出
+                * LFU（Less Frequently Used），较少使用，即创建之后使用最少
+            - maxEntriesLocalHeap：堆内存中最大缓存对象数
+    -->
+    <defaultCache
+            maxElementsInMemory="10000"
+            eternal="false"
+            overflowToDisk="false"
+            timeToIdleSeconds="1800"
+            timeToLiveSeconds="1800"
+            diskPersistent="false"
+            diskExpiryThreadIntervalSeconds="120"
+    />
+
+    <cache name="demoCache"
+           eternal="false"
+           overflowToDisk="false"
+           timeToIdleSeconds="1800"
+           timeToLiveSeconds="1800"
+           maxEntriesLocalHeap="2000"
+    />
+
+    <cache name="demo1Cache"
+           eternal="false"
+           overflowToDisk="false"
+           timeToIdleSeconds="1800"
+           timeToLiveSeconds="1800"
+           maxEntriesLocalHeap="2000"
+    />
+</ehcache>
